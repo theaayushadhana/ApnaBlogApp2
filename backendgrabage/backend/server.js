@@ -24,7 +24,7 @@ app.use(cors({
 }));
 
 app.use(session({
-  secret: 'THEAAYUSHADHANAISADEVELOPER',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: { secure: process.env.NODE_ENV === 'production' },
