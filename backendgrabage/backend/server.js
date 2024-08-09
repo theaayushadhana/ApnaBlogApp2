@@ -19,7 +19,7 @@ const app = express();
 
 app.use(cors({
   // origin: 'http://localhost:5173',
-  origin: 'http://apnablogapp.com',
+  origin: 'https://apnablogapp.com',
   credentials: true,
 }));
 
@@ -43,6 +43,7 @@ app.use('/auth', authRoutes);
 app.use('/api/posts', posts);
 app.use('/api/admin', adminRoute);
 app.use('/api/posts' , comments);
+
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
@@ -56,5 +57,5 @@ mongoose.connect(process.env.MONGO_URI)
     console.log('Error connecting to MongoDB:', error);
   });
 
-const PORT =  process.env.PORT;
+const PORT =  process.env.PORT || 5004;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
