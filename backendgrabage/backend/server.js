@@ -24,8 +24,8 @@ app.use(cors({
 }));
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
+  secret: process.env.SESSION_SECRET || 'AAYUSHADHANAISADEVELOPER',
+  resave: true,
   saveUninitialized: true,
   cookie: { secure: process.env.NODE_ENV === 'production' },
   store: MongoStore.create({
